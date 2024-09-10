@@ -26,11 +26,6 @@ export default function Root({ children }: PropsWithChildren) {
         {/* Add any additional <head> elements that you want globally available on web... */}
       </head>
 
-      <Head>
-        <title>My Blog Website</title>
-        <meta name="description" content="This is my blog." />
-      </Head>
-
       <body>{children}</body>
     </html>
   );

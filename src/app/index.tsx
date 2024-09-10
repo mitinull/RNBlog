@@ -3,20 +3,27 @@ import { getAllPosts } from '../repository/postRepository';
 import { useState } from 'react';
 import { Link } from 'expo-router';
 import PostListItem from '../components/PostListItem';
+import Head from 'expo-router/head';
 
 export default function Page() {
   const [posts, setPosts] = useState(getAllPosts());
 
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <FlatList
-          data={posts}
-          contentContainerStyle={{ gap: 20 }}
-          renderItem={({ item }) => <PostListItem post={item} />}
-        />
+    <>
+      <Head>
+          <title>My Blog Website</title>
+          <meta name="description" content="This is my blog." />
+      </Head>
+      <View style={styles.container}>
+        <View style={styles.main}>
+          <FlatList
+            data={posts}
+            contentContainerStyle={{ gap: 20 }}
+            renderItem={({ item }) => <PostListItem post={item} />}
+            />
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 
